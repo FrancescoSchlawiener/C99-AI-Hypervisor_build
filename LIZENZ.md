@@ -6,7 +6,7 @@ Dieses Werk (Programm, Quellcode, Daten, Anleitung und Bilder in diesem Ordner) 
 Nutzer; sie schränken die Lizenz nirgends ein. Im Zweifel gilt die für den Nutzer günstigere Regel.
 
 Ausgenommen sind die in `libgpb/HERKUNFT.md` und `daten/quellen/LIZENZEN.md` genannten Bestandteile; für sie gelten die
-dort genannten Lizenzen.
+dort genannten Lizenzen. Ausgenommen ist außerdem das Brotli-Wörterbuch (Teil 4).
 
 ---
 
@@ -90,6 +90,35 @@ arbeiten — die Anfrage selbst ist bereits die Genehmigung (Klausel 2).
 Kontakt: silvano19911@gmail.com
 
 Für **kommerzielle Nutzung** (Teil 1, NC) bitte dieselbe Adresse mit dem Betreff „gpbwerk kommerzielle Nutzung“.
+
+---
+
+## Teil 4 · Fremde Daten: Brotli-Wörterbuch
+
+Das Programm enthält das statische Wörterbuch von Brotli (RFC 7932, Anhang A; Quelltext
+`strom/strom_brotli_woerter.h`). Dafür gilt:
+
+```
+Copyright (c) 2009, 2010, 2013-2016 by the Brotli Authors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+```
 
 ---
 

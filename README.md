@@ -200,6 +200,11 @@ Windows: Systemsteuerung → System → Umgebungsvariablen, oder
 `set ANTHROPIC_API_KEY=sk-…` in der Eingabeaufforderung vor dem Start. Die
 Ansicht *Endpunkte* zeigt, ob die Variable gesetzt ist.
 
+**Eigene Zertifizierungsstelle** (Firmen-Proxy, eigener Server): unter
+Linux/macOS `GPB_CA_DATEI=<datei.pem>`; sie gilt zusätzlich zu den
+Systemzertifikaten, die Prüfung bleibt an. Unter Windows die
+Zertifizierungsstelle in die Zertifikatsverwaltung des Systems aufnehmen.
+
 ## 4. Agenten
 
 Ansicht **Agenten** → **+ Neuer Agent**.
@@ -334,6 +339,9 @@ Ablauf nach einem zweiten Klick.
   Jeder Wegfall wird im Verlauf gemeldet.
 - **Vergleichen** – bei mehreren Antworten ein Bericht über Invarianten der
   Texte (Substanz, Token, Struktur). Keine Bewertung des Inhalts.
+- **Messlauf** – drei feste Fragen an die Agenten des offenen Chats, danach eine
+  Tabelle: Antworten, Bruchstücke, Zeit bis zum ersten und letzten Stück,
+  Größe als `.gpb`. Läuft im Hintergrund, das Fenster bleibt bedienbar.
 - **Übergabe-Hygiene** – bei Ketten: prüft den weitergereichten Text auf
   Steuerzeichen, Bidi-Overrides und Rollenmarken wie `<|im_start|>`;
   *streng* entfernt sie. Kein Schutz gegen Anweisungen im Text.
