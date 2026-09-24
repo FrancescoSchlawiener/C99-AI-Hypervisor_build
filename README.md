@@ -387,16 +387,37 @@ gpb-browser "--kette=claude>deepseek" --beleg "Frage"   Kette mit Rundlauf-Beleg
 gpb-browser --modell=claude --fallback=gpt "Frage"      Ausweichen bei 429/5xx
 gpb-browser --modell=ollama "Frage" | gpb-browser --modell=gpt
 
-gpb-browser web liste | einrichten | pruefen | kopf | holen | entfernen
+gpb-browser web liste | einrichten | pruefen | kopf | gespraeche | holen | entfernen
 gpb-browser agent liste | zeigen | neu | aendern | loeschen
 gpb-browser chat liste | zeigen | neu | aendern | loeschen
 gpb-browser speicher liste | zeigen | legen | suchen | weg | aendern | backen | saeubern
 gpb-browser --hilfe          gpb-browser agent hilfe   (ebenso chat, speicher, web)
 ```
 
+Im Dialog: `:ende`, `:neu`, `:status`, `:verlauf`, `:kuerzen <n>`, `:paste`,
+`:gpb <datei>`, `:hilfe`. Ctrl-C bricht eine laufende Antwort ab.
+
+Ablauf auf der Kommandozeile (entspricht dem Beispiel in Abschnitt 5):
+
+```
+gpb-browser agent neu recherche --endpunkt=claude-web --prompt=@rolle.txt
+gpb-browser agent neu gegenprobe --endpunkt=deepseek-web
+gpb-browser agent neu richter --endpunkt=gemini-web --speicher=wissen --recht=lesen
+gpb-browser chat neu rat --agent=recherche --agent=gegenprobe --agent=richter \
+    --stufe=richter:1 --hoert=richter:recherche,gegenprobe --schiedsrichter=richter
+gpb-browser chat aendern rat --auftrag="richter:Welche Antwort trägt? %s"
+gpb-browser chat aendern rat --runden=5 --ende=wort --ende-wort=FERTIG
+gpb-browser --chat=rat "Frage"
+```
+
+`--ablauf=parallel|runde|reihe` setzt eine Vorlage (alle gleichzeitig /
+nacheinander mit allem davor / Kette). `agent aendern <name> --faden=ja`
+entspricht „Gespräch beim Anbieter fortsetzen“.
+
 `--daten=<verzeichnis>` vor jedem Befehl wählt einen anderen Datenordner.
-`web holen <dienst> <pfad>` ruft eine Adresse des Dienstes mit deiner
-Sitzung ab (`web holen claude-web /api/organizations`).
+`web gespraeche <dienst> [<kennung>]` listet die Gespräche beim Dienst bzw.
+zeigt eins. `web holen <dienst> <pfad>` ruft eine Adresse des Dienstes mit
+deiner Sitzung ab (`web holen claude-web /api/organizations`).
 
 ## 10. Fehler
 
