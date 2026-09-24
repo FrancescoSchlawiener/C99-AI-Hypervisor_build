@@ -200,10 +200,9 @@ Windows: Systemsteuerung → System → Umgebungsvariablen, oder
 `set ANTHROPIC_API_KEY=sk-…` in der Eingabeaufforderung vor dem Start. Die
 Ansicht *Endpunkte* zeigt, ob die Variable gesetzt ist.
 
-**Eigene Zertifizierungsstelle** (Firmen-Proxy, eigener Server): unter
-Linux/macOS `GPB_CA_DATEI=<datei.pem>`; sie gilt zusätzlich zu den
-Systemzertifikaten, die Prüfung bleibt an. Unter Windows die
-Zertifizierungsstelle in die Zertifikatsverwaltung des Systems aufnehmen.
+**Eigene Zertifizierungsstelle** (Firmen-Proxy, eigener Server):
+`GPB_CA_DATEI=<datei.pem>`, unter Linux, macOS und Windows. Sie gilt
+zusätzlich zu den Systemzertifikaten, die Prüfung bleibt an.
 
 ## 4. Agenten
 
