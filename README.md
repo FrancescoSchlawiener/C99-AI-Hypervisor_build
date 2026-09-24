@@ -332,8 +332,9 @@ Richters.
 
 ![Gespräch mit Ablauf live](bilder/gespraech.png)
 
-Links die gespeicherten Abläufe, rechts das Gespräch. Frage unten eintippen,
-**Senden** oder Enter.
+Links die gespeicherten Abläufe, rechts das Gespräch. Frage unten eintippen
+oder einfügen – das Feld ist mehrzeilig und ohne Längengrenze. **Enter**
+sendet, **Shift+Enter** macht eine neue Zeile.
 
 **Der Ablauf live.** Über dem Verlauf steht derselbe Graph in Betrieb: Die
 aktive Stufe leuchtet, jeder Agent zeigt *wartet / schreibt … 240 Token /
@@ -349,6 +350,11 @@ Namensschildern. Damit ist jederzeit nachprüfbar, was ein Agent wusste.
 
 **Farben.** Blau = du, weiß = Antworten, grau = Hinweise und der Bericht nach
 dem Lauf (Stufen, Urteil, Grund des Endes, Token, Dauer), **rot = Fehler**.
+
+**Herausholen.** **Kopieren** neben jeder Antwort legt ihren Text in die
+Zwischenablage; **Verlauf kopieren** (über dem Eingabefeld) das ganze
+Gespräch als Text mit Sprechernamen. Als Datei sichert es **Werkzeuge …**
+(unten).
 
 **Abbrechen.** Während eine Antwort läuft, wird **Senden** zu
 **Abbrechen**. Die Teilantwort bleibt sichtbar, geht aber nicht in den
@@ -383,7 +389,8 @@ Klick zur Bestätigung.
 
 Ansicht **Anbieter**: einen Dienst wählen, **Neu laden** holt seine
 Gesprächsliste, so wie sie auf der Webseite steht. Ein Gespräch anklicken
-zeigt es Zug für Zug; unten weiterschreiben, **+ Neues** beginnt eins. Das
+zeigt es Zug für Zug; unten weiterschreiben (Enter sendet, Shift+Enter neue
+Zeile), **+ Neues** beginnt eins. Das
 Suchfeld filtert die Liste nach Namen. Öffnet die Ansicht einen Chat, der
 über diesen Dienst schreibt, ist dessen Gespräch in der Liste markiert.
 
