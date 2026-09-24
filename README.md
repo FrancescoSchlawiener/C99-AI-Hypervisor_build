@@ -342,8 +342,10 @@ Ablauf nach einem zweiten Klick.
 
 Ansicht **Anbieter**: Dienst wählen, **Neu laden** holt die Gesprächsliste
 des Dienstes. Gespräch anklicken zeigt es; unten weiterschreiben (Enter
-sendet, Shift+Enter neue Zeile), **+ Neues** beginnt eins. Das Suchfeld
-filtert nach Namen.
+sendet, Shift+Enter neue Zeile), **+ Neues** beginnt eins. Ab sieben
+Gesprächen erscheint über der Liste ein Suchfeld, es filtert nach Namen.
+Das Gespräch, in das ein offener Ablauf schreibt, trägt die Marke
+„Gespräch“.
 
 | Dienst | Was geht |
 |---|---|
