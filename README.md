@@ -100,7 +100,9 @@ es keinen API-Schlüssel. Es braucht aber zwei Dinge aus deinem Browser:
    abgelehnt (HTTP 403). Deshalb muss die Kennung *deines* Browsers mit.
 
 Diese beiden Dinge landen in einer **Zugangsdatei** je Dienst,
-`daten/keks/<endpunkt>.txt`. Das Programm zeigt Cookie-Werte nirgends an,
+`keks/<endpunkt>.txt` im Datenordner (siehe „Wo deine Daten liegen“, unter
+Windows also `%APPDATA%\gpb-browser\keks\claude-web.txt`). Das Programm
+zeigt Cookie-Werte nirgends an,
 schreibt sie in kein Protokoll und in keine Meldung; die Prüfung nennt nur
 Namen und Ablaufdaten.
 
@@ -182,7 +184,7 @@ $ gpb-browser web pruefen claude-web
 
 claude-web  (Claude (claude.ai, Browsersitzung))
   Adresse        https://claude.ai
-  Zugang         …/daten/keks/claude-web.txt
+  Zugang         C:\Users\du\AppData\Roaming\gpb-browser\keks\claude-web.txt
   Cookies        7 gelesen: sessionKey cf_clearance __cf_bm …
   Anmeldung      ✓ sessionKey
   cf_clearance   ✓ da (gilt nur fuer dieselbe IP und denselben User-Agent)
@@ -197,7 +199,7 @@ Satz da – etwa „das Anmelde-Cookie sessionKey fehlt" oder bei DeepSeek
 
 ### Die Zugangsdatei selbst
 
-`daten/keks/<endpunkt>.txt` ist eine Textdatei. Zwei Formen werden gelesen:
+`keks/<endpunkt>.txt` im Datenordner ist eine Textdatei. Zwei Formen werden gelesen:
 Netscape-Zeilen (`.claude.ai TRUE / TRUE 1790000000 sessionKey sk-…`) oder eine
 rohe Cookie-Zeile (`Cookie: sessionKey=…; cf_clearance=…`), dazu je eine Zeile
 `User-Agent: …` und weitere Kopfzeilen (`sec-ch-ua: …`,
@@ -245,7 +247,7 @@ Ansicht **Agenten** → **+ Neuer Agent**.
 - **Speicher / Recht / geteilt** – siehe [Speicher](#8-speicher-gedächtnis).
 - **Gespräch beim Anbieter fortsetzen** – nur Weboberflächen. Standardmäßig
   legt jeder Lauf beim Dienst ein neues Gespräch an. Mit diesem Haken merkt
-  sich der Agent das Gespräch (unter `daten/faden/`) und schreibt beim
+  sich der Agent das Gespräch (unter `faden/` im Datenordner) und schreibt beim
   nächsten Mal darin weiter: Der Dienst kennt dann den bisherigen Verlauf,
   und dein Konto füllt sich nicht mit leeren Gesprächen.
 
