@@ -1,0 +1,4 @@
+# Beim Start entsteht neben dem Programm daten/ - mit Sitzungs-Cookies.
+# Das gehoert nie ins Repository.
+daten/
+*/daten/
