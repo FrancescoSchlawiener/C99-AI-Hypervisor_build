@@ -355,8 +355,10 @@ dem Lauf (Stufen, Urteil, Grund des Endes, Token, Dauer), **rot = Fehler**.
 Verlauf – ein Modell soll beim nächsten Zug kein halbes eigenes Wort
 vorgelegt bekommen.
 
-**Ablauf ändern** führt in die Ansicht Ablauf; nach dem Speichern gilt der
-neue Aufbau ab der nächsten Frage, der Verlauf bleibt stehen.
+Der Knopf **Ablauf** (links) führt in die Ansicht Ablauf; nach dem
+Speichern gilt der neue Aufbau ab der nächsten Frage, der Verlauf bleibt
+stehen. **Löschen** entfernt den gespeicherten Ablauf – nach einem zweiten
+Klick zur Bestätigung.
 
 **Werkzeuge …** (links):
 
