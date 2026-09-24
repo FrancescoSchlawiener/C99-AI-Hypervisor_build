@@ -90,7 +90,7 @@ es keinen API-Schlüssel. Es braucht aber zwei Dinge aus deinem Browser:
    |---|---|---|---|
    | `claude-web` | claude.ai | `sessionKey` | `cf_clearance` (Cloudflare) |
    | `deepseek-web` | chat.deepseek.com | `userToken` oder `ds_session_id` | Kopfzeile `authorization: Bearer …` – **kommt in keinem Cookie-Export mit**, siehe unten |
-   | `gemini-web` | gemini.google.com | `__Secure-1PSID` | `__Secure-1PSIDTS` – wird von Google laufend erneuert, ein alter Export gilt nach Stunden nicht mehr |
+   | `gemini-web` | gemini.google.com | `__Secure-1PSID` **und** `__Secure-1PSIDTS` – beide Pflicht, `web pruefen` verlangt beide | `__Secure-1PSIDTS` wird von Google laufend erneuert, ein alter Export gilt nach Stunden nicht mehr |
    | `chatgpt-web` | chatgpt.com | `__Secure-next-auth.session-token` | `cf_clearance` |
    | `grok-web` | grok.com | `sso` (und `sso-rw`) | `cf_clearance` – die Cookies von **grok.com**, nicht die von x.com, auch wenn die Anmeldung über X lief |
 
