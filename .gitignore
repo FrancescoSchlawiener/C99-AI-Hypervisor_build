@@ -1,5 +1,0 @@
-# Die Daten liegen im Anwendungsordner des Systems (README: "Wo deine Daten
-# liegen"). Wer sie mit --daten oder GPB_DATEN hierher legt: sie tragen
-# Sitzungs-Cookies und gehoeren nie ins Repository.
-daten/
-*/daten/
