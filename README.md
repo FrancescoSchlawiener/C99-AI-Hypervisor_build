@@ -29,11 +29,17 @@ Inhalt: [Start](#1-start) · [Begriffe](#2-die-begriffe) ·
 Das Fenster starten (`gpb-gui`), fertig. Ein einzelnes Programm ohne
 Installer: Es lässt sich von jedem Ort starten, auch vom USB-Stick.
 
-**Wo deine Daten liegen.** Alles, was du einrichtest, liegt im Ordner `daten`
-**neben dem Programm**, nicht im Benutzerprofil:
+**Wo deine Daten liegen.** Alles, was du einrichtest, liegt im
+Anwendungsordner deines Systems, nicht neben dem Programm:
+
+| System | Ordner |
+|---|---|
+| Windows | `%APPDATA%\gpb-browser` (also `C:\Users\<du>\AppData\Roaming\gpb-browser`) |
+| Linux/BSD | `~/.local/share/gpb-browser` (oder `$XDG_DATA_HOME/gpb-browser`) |
+| macOS | `~/Library/Application Support/gpb-browser` |
 
 ```
-daten/
+gpb-browser/
   keks/       Zugänge zu den Weboberflächen (deine Sitzungs-Cookies)
   agenten/    Agenten (JSON, eine Datei je Agent)
   chats/      Abläufe
@@ -42,11 +48,10 @@ daten/
   verlauf/    Gesprächsverläufe
 ```
 
-Die Fußzeile des Fensters zeigt den Pfad. Wer Programm und `daten` zusammen
-kopiert, nimmt alles mit. Ein anderer Ort: `--daten=<verzeichnis>` oder die
-Umgebungsvariable `GPB_DATEN`. **`daten/keks/` enthält deine Anmeldung bei den
-Diensten – wer diesen Ordner hat, ist bei den Diensten du.** Nicht weitergeben,
-nicht in eine Cloud-Synchronisation legen.
+Die Fußzeile des Fensters zeigt den Pfad. Ein anderer Ort:
+`--daten=<verzeichnis>` oder die Umgebungsvariable `GPB_DATEN`. **`keks/`
+enthält deine Anmeldung bei den Diensten – wer diesen Ordner hat, ist bei den
+Diensten du.** Nicht weitergeben, nicht in eine Cloud-Synchronisation legen.
 
 Beim ersten Start zeigt die Ansicht *Gespräch* die drei nötigen Schritte mit
 einem Knopf zu jedem: Zugang einrichten → Agent anlegen → Ablauf bauen.
