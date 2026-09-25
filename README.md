@@ -183,7 +183,9 @@ mit einer Antwort neue Cookies, schreibt das Programm sie in die
 Zugangsdatei zurück; alles andere darin bleibt, wie es war. Bei Gemini ruft
 es außerdem, wie die Seite selbst, alle zehn Minuten die Erneuerung bei
 Google auf. Du musst also **nicht** alle paar Tage neu kopieren, solange du
-das Programm benutzt.
+das Programm benutzt. Unter Linux und macOS kann nur dein Benutzer die
+Zugangsdateien lesen (Datei 0600, Ordner `keks` 0700), auch nach jedem
+Zurückschreiben.
 
 Neu einrichten musst du nur, wenn eine Sitzung schon abgelaufen ist, bevor
 sie erneuert werden konnte (das Programm lag lange ungenutzt, oder du hast
