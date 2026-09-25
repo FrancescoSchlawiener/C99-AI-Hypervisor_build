@@ -77,7 +77,7 @@ schickt an dieselben Adressen dieselben Cookies und dieselbe Browserkennung
    |---|---|---|---|
    | `claude-web` | claude.ai | `sessionKey` | `cf_clearance` |
    | `deepseek-web` | chat.deepseek.com | `userToken` oder `ds_session_id` | Kopfzeile `authorization: Bearer …` – steht in keinem Cookie-Export, siehe Weg B |
-   | `gemini-web` | gemini.google.com | `__Secure-1PSID` **und** `__Secure-1PSIDTS` | `__Secure-1PSIDTS` erneuert Google laufend; ein alter Export gilt nach Stunden nicht mehr |
+   | `gemini-web` | gemini.google.com | `__Secure-1PSID` **und** `__Secure-1PSIDTS` | `__Secure-1PSIDTS` erneuert Google stündlich – das Programm erneuert es mit, solange du es benutzt |
    | `chatgpt-web` | chatgpt.com | `__Secure-next-auth.session-token` | `cf_clearance` |
    | `grok-web` | grok.com | `sso` (und `sso-rw`) | `cf_clearance`; Cookies von **grok.com**, nicht von x.com |
 
@@ -178,10 +178,19 @@ Kopfzeilen (`sec-ch-ua: …`, `authorization: Bearer …`). Die
 Umgebungsvariable `GPB_<DIENST>_COOKIES` (z. B. `GPB_CLAUDE_COOKIES`) zeigt
 auf eine andere Datei und hat Vorrang.
 
-**Sitzungen laufen ab.** Anmelde-Cookies gelten Tage bis Wochen,
-`cf_clearance` kürzer, `__Secure-1PSIDTS` Stunden. Bei „Sitzung gilt nicht
-(mehr)“ oder „Anmeldeseite“: im Browser die Seite neu laden und den Zugang
-neu einrichten. **Entfernen** in der Endpunkt-Zeile löscht einen Zugang.
+**Sitzungen halten sich selbst frisch – wie im Browser.** Schickt ein Dienst
+mit einer Antwort neue Cookies, schreibt das Programm sie in die
+Zugangsdatei zurück; alles andere darin bleibt, wie es war. Bei Gemini ruft
+es außerdem, wie die Seite selbst, alle zehn Minuten die Erneuerung bei
+Google auf. Du musst also **nicht** alle paar Tage neu kopieren, solange du
+das Programm benutzt.
+
+Neu einrichten musst du nur, wenn eine Sitzung schon abgelaufen ist, bevor
+sie erneuert werden konnte (das Programm lag lange ungenutzt, oder du hast
+dich im Browser abgemeldet), und wenn `cf_clearance` abläuft – das stellt
+nur die Prüfseite von Cloudflare aus. Bei „Sitzung gilt nicht (mehr)“ oder
+„Anmeldeseite“: im Browser die Seite neu laden und den Zugang neu
+einrichten. **Entfernen** in der Endpunkt-Zeile löscht einen Zugang.
 
 ### API-Schlüssel
 
@@ -439,7 +448,7 @@ deiner Sitzung ab (`web holen claude-web /api/organizations`).
 | „HTTP 403 … Bot-Prüfung“ | `cf_clearance` fehlt, ist abgelaufen oder passt nicht zu User-Agent/IP (anderes Netz, VPN) | Weg B aus demselben Netz; bleibt es, ist es die TLS-Bindung (Abschnitt 11) |
 | „HTTP 302 → …“ | der Dienst leitet um; die Adresse in der Kopfdatei gilt nicht mehr | Meldung nennt das Ziel |
 | DeepSeek: „Missing Token“ / „authorization fehlt“ | Token liegt nicht in einem Cookie | Weg B mit `/api/`-Anfrage |
-| Gemini: Anmeldeseite trotz frischem Export | `__Secure-1PSIDTS` veraltet oder fehlt | Gemini im Browser öffnen, sofort neu exportieren |
+| Gemini: Anmeldeseite trotz frischem Export | `__Secure-1PSIDTS` war schon verfallen, bevor das Programm es erneuern konnte, oder fehlt | Gemini im Browser öffnen, sofort neu exportieren; danach hält das Programm es selbst frisch |
 | ChatGPT/Grok: Lesen geht, Senden nicht | Browser-Rechenwert | nicht behebbar, Abschnitt 11 |
 | Agent im Graphen rot, Verlauf „Fehler · name“ | der Dienst hat die Antwort abgelehnt; die Stufe läuft mit den anderen zu Ende | rote Meldung nennt den Grund |
 | Senden bleibt „Abbrechen“ | ein Dienst antwortet nicht | Abbrechen; Leerlauf-Frist 60 s |
